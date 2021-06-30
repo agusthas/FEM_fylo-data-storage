@@ -1,0 +1,12 @@
+$breakpoints: (
+  'sm': 576px,
+  'md': 800px,
+  'lg': 1000px,
+  'xl': 1600px,
+);
+
+@mixin respond-to($br) {
+  @media screen and (min-width: map-get($map: $breakpoints, $key: $br)) {
+    @content;
+  }
+}

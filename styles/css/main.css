@@ -1,0 +1,350 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+
+body {
+  background-color: #0c122c;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #dddbff;
+}
+
+strong {
+  font-weight: 700;
+}
+
+main {
+  height: 100vh;
+  background-image: url("../../images/bg-mobile.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+@media screen and (min-width: 576px) {
+  main {
+    background-image: url("../../images/bg-desktop.png");
+    background-size: contain;
+    background-position: bottom center;
+  }
+}
+@media screen and (min-width: 1600px) {
+  main {
+    background-position: bottom -60% center;
+  }
+}
+
+.container {
+  width: 100%;
+  padding: 1.5rem;
+  margin: 0 auto;
+}
+@media screen and (min-width: 576px) {
+  .container {
+    max-width: 576px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .container {
+    max-width: 920px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+  }
+}
+
+.box {
+  background-color: #1d2c67;
+  border-radius: 10px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.box-spacer > * + * {
+  margin-top: 1rem;
+}
+@media screen and (min-width: 800px) {
+  .box-spacer > * + * {
+    margin: 0;
+    margin-left: 2rem;
+  }
+}
+
+.spacer-y-lg > * + * {
+  margin-top: 2rem;
+}
+
+.spacer-y > * + * {
+  margin-top: 1rem;
+}
+
+.icons-spacer > * + * {
+  margin-left: 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  padding: 2.5rem 2.625rem;
+  border-top-right-radius: 100px;
+}
+.menu .icon-container {
+  justify-content: initial;
+}
+.menu .icon {
+  width: 3rem;
+  height: 3rem;
+  background-color: #0c122c;
+  border-radius: 10px;
+}
+
+.storage {
+  padding: 2rem;
+  padding-bottom: calc(2rem* 2);
+  position: relative;
+}
+@media screen and (min-width: 800px) {
+  .storage {
+    max-height: 154px;
+    padding: 2.5rem;
+    align-self: flex-end;
+  }
+}
+.storage-header {
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+@media screen and (min-width: 800px) {
+  .storage-header {
+    text-align: left;
+  }
+}
+.storage-header strong {
+  letter-spacing: 0;
+}
+.storage-left {
+  margin: 0;
+  padding: 0.8125rem 1.5rem;
+  border-radius: 10px;
+  position: absolute;
+  background-color: #fff;
+  bottom: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #0c122c;
+  display: flex;
+  align-items: center;
+}
+@media screen and (min-width: 800px) {
+  .storage-left {
+    top: -30%;
+    right: 2.2rem;
+    left: auto;
+    transform: translateX(0);
+    bottom: auto;
+    border-bottom-right-radius: 0;
+  }
+  .storage-left::after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(to top right, transparent 50%, #fff 50%);
+    right: 0;
+    bottom: -22px;
+  }
+}
+.storage-left > * + * {
+  margin-left: 0.5rem;
+}
+.storage-left .size {
+  font-size: 2.625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.storage-left .label {
+  white-space: nowrap;
+  font-weight: 700;
+  color: #848794;
+}
+
+.progress-range .progress {
+  height: 20px;
+  background-color: #0c122c;
+  border-radius: 10px;
+  padding: 3px;
+}
+.progress-range .progress__bar {
+  background: linear-gradient(to right, #ffa399, #ff4d97);
+  position: relative;
+  align-items: center;
+  width: 75%;
+  height: 100%;
+  padding: 3px;
+  border-radius: inherit;
+}
+.progress-range .progress__thumb {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  margin-left: auto;
+  border-radius: 50%;
+}
+.progress-range .range {
+  justify-content: space-between;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-top: 0.5rem;
+  letter-spacing: -0.03em;
+}
+
+/*# sourceMappingURL=main.css.map */

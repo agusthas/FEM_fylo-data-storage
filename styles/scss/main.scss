@@ -1,0 +1,234 @@
+@use './resets';
+@use './variables' as *;
+@use './media' as *;
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $ff-family;
+}
+
+body {
+  background-color: $very-dark-blue;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: $pale-blue;
+}
+
+strong {
+  font-weight: 700;
+}
+
+main {
+  height: 100vh;
+  background-image: url('../../images/bg-mobile.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+
+  @include respond-to('sm') {
+    background-image: url('../../images/bg-desktop.png');
+    background-size: contain;
+    background-position: bottom center;
+  }
+
+  @include respond-to('xl') {
+    background-position: bottom -60% center;
+  }
+}
+
+.container {
+  width: 100%;
+  padding: 1.5rem;
+  margin: 0 auto;
+
+  @include respond-to('sm') {
+    max-width: 576px;
+  }
+
+  @include respond-to('md') {
+    max-width: 920px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+  }
+}
+
+.box {
+  background-color: $dark-blue;
+  border-radius: $radius;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.box-spacer {
+  > * + * {
+    margin-top: 1rem;
+
+    @include respond-to('md') {
+      margin: 0;
+      margin-left: 2rem;
+    }
+  }
+}
+
+.spacer-y-lg {
+  > * + * {
+    margin-top: 2rem;
+  }
+}
+
+.spacer-y {
+  > * + * {
+    margin-top: 1rem;
+  }
+}
+
+.icons-spacer {
+  > * + * {
+    margin-left: 1rem;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  padding: 2.5rem 2.625rem;
+  border-top-right-radius: 100px;
+
+  .icon-container {
+    justify-content: initial;
+  }
+
+  .icon {
+    $size: 3rem;
+    width: $size;
+    height: $size;
+    background-color: $very-dark-blue;
+    border-radius: $radius;
+  }
+}
+
+.storage {
+  $padding-storage: 2rem;
+  padding: $padding-storage;
+  padding-bottom: calc(#{$padding-storage}* 2); //? For the storage left below
+  position: relative;
+
+  @include respond-to('md') {
+    max-height: 154px; //? is there an alternative to this?
+    padding: 2.5rem;
+    align-self: flex-end;
+  }
+
+  &-header {
+    text-align: center;
+    letter-spacing: 0.02em;
+
+    @include respond-to('md') {
+      text-align: left;
+    }
+
+    strong {
+      letter-spacing: 0;
+    }
+  }
+
+  &-left {
+    margin: 0;
+    padding: 0.8125rem 1.5rem;
+    border-radius: $radius;
+    position: absolute;
+    background-color: #fff;
+    bottom: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $very-dark-blue;
+    display: flex;
+    align-items: center;
+
+    @include respond-to('md') {
+      top: -30%;
+      right: $padding-storage + 0.2rem;
+      left: auto;
+      transform: translateX(0);
+      bottom: auto;
+      border-bottom-right-radius: 0;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        background: linear-gradient(to top right, transparent 50%, #fff 50%);
+        right: 0;
+        bottom: -22px;
+      }
+    }
+
+    > * + * {
+      margin-left: 0.5rem;
+    }
+
+    .size {
+      font-size: 2.625rem; //? 42px
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .label {
+      white-space: nowrap;
+      font-weight: 700;
+      color: $grayish-blue;
+    }
+  }
+}
+
+.progress-range {
+  .progress {
+    $thumb-radius: 10px;
+    height: 20px;
+    background-color: $very-dark-blue;
+    border-radius: $radius;
+    padding: 3px;
+
+    &__bar {
+      background: $primary-gradients;
+      position: relative;
+      align-items: center;
+      width: 75%;
+      height: 100%;
+      padding: 3px;
+      border-radius: inherit;
+    }
+
+    &__thumb {
+      display: inline-block;
+      width: $thumb-radius;
+      height: $thumb-radius;
+      background-color: #fff;
+      margin-left: auto;
+      border-radius: 50%;
+    }
+  }
+
+  .range {
+    justify-content: space-between;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-top: 0.5rem;
+    letter-spacing: -0.03em;
+  }
+}
